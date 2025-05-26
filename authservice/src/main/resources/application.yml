@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: authserviceapp
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/authservice
+    username: root
+    password: "%password%"
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 1122
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
